@@ -24,7 +24,7 @@ capacidadeMaxima FLOAT NOT NULL
 );
 
 CREATE TABLE maquina(
-idMaquina INT PRIMARY KEY AUTO_INCREMENT,
+macAddress VARCHAR(12) PRIMARY KEY,
 numeroSerie VARCHAR(45) NOT NULL UNIQUE,
 tipoModelo VARCHAR(45) NOT NULL,
 statusAtividade VARCHAR(10),
