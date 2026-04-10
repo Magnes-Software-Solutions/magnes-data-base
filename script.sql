@@ -1,8 +1,8 @@
 CREATE DATABASE magnes;
 USE magnes;
 
-CREATE TABLE fabricante(
-idFabricante INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE hospital(
+idHospital INT PRIMARY KEY AUTO_INCREMENT,
 razaoSocial VARCHAR(100) NOT NULL,
 cnpj CHAR(14) NOT NULL UNIQUE
 );
@@ -31,9 +31,9 @@ statusAtividade VARCHAR(10),
 fkEstabelecimento INT NOT NULL,
 FOREIGN KEY (fkEstabelecimento) 
     REFERENCES estabelecimento(idEstabelecimento),
-fkFabricante INT NOT NULL,
-FOREIGN KEY (fkFabricante) 
-    REFERENCES fabricante(idFabricante)
+fkHospital INT NOT NULL,
+FOREIGN KEY (fkHospital) 
+    REFERENCES hospital(idHospital)
 );
 
 CREATE TABLE componente_maquina(
@@ -41,9 +41,9 @@ PRIMARY KEY (fkComponente, fkMaquina),
 fkComponente INT NOT NULL,
 FOREIGN KEY (fkComponente) 
     REFERENCES componente(idComponente),
-fkMaquina INT NOT NULL,
+fkMaquina VARCHAR(12) NOT NULL,
 FOREIGN KEY (fkMaquina) 
-    REFERENCES maquina(idMaquina),
+    REFERENCES maquina(macAddress),
 limite FLOAT NOT NULL
 );
 
@@ -52,9 +52,9 @@ idRegistro INT PRIMARY KEY AUTO_INCREMENT,
 fkComponente INT NOT NULL,
 FOREIGN KEY (fkComponente) 
     REFERENCES componente(idComponente),
-fkMaquina INT NOT NULL,
+fkMaquina VARCHAR(12) NOT NULL,
 FOREIGN KEY (fkMaquina) 
-    REFERENCES maquina(idMaquina),
+    REFERENCES maquina(macAddress),
 dataHora DATETIME NOT NULL
 );
 
@@ -65,9 +65,9 @@ email VARCHAR(100) NOT NULL UNIQUE,
 senha VARCHAR(255) NOT NULL,
 cpf CHAR(11) NOT NULL UNIQUE,
 telefone VARCHAR(20) UNIQUE,
-fkFabricante INT,
-FOREIGN KEY (fkFabricante) 
-    REFERENCES fabricante(idFabricante),
+fkHospital INT,
+FOREIGN KEY (fkHospital) 
+    REFERENCES hospital(idHospital),
 fkSupervisor INT,
 FOREIGN KEY (fkSupervisor) 
     REFERENCES usuario(idUsuario)
