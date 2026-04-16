@@ -1,13 +1,13 @@
 CREATE DATABASE magnes;
 USE magnes;
 
-CREATE TABLE hospital(
+CREATE TABLE redeHospital(
 idHospital INT PRIMARY KEY AUTO_INCREMENT,
 razaoSocial VARCHAR(100) NOT NULL,
 cnpj CHAR(14) NOT NULL UNIQUE
 );
 
-CREATE TABLE estabelecimento(
+CREATE TABLE enderecoHospital(
 idEstabelecimento INT PRIMARY KEY AUTO_INCREMENT,
 razaoSocialEstabelecimento VARCHAR(100) NOT NULL,
 tipoEstabelecimento VARCHAR(45) NOT NULL,
