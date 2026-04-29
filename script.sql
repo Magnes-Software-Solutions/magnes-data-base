@@ -47,17 +47,6 @@ FOREIGN KEY (fkMaquina)
 limite FLOAT NOT NULL
 );
 
-CREATE TABLE registro(
-idRegistro INT PRIMARY KEY AUTO_INCREMENT,
-fkComponente INT NOT NULL,
-FOREIGN KEY (fkComponente) 
-    REFERENCES componente(idComponente),
-fkMaquina VARCHAR(12) NOT NULL,
-FOREIGN KEY (fkMaquina) 
-    REFERENCES maquina(macAddress),
-dataHora DATETIME NOT NULL
-);
-
 CREATE TABLE usuario(
 idUsuario INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(100) NOT NULL,
