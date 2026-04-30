@@ -87,5 +87,8 @@ VALUES
 
 INSERT INTO usuario (nome, email, senha, cpf, telefone, fkRedeHospital, fkSupervisor)
 VALUES
-('João Silva', 'joao@email.com', '12345678', '12345678901', '11999999999', 1, NULL),
-('Maria Souza', 'maria@email.com', '12345678', '98765432100', '11888888888', 2, NULL);
+('Cleber Dias', 'cleber@email.com', '12345678', '12345678901', '11999999999', 1, NULL);
+
+SELECT * FROM usuario;
+
+#DROP DATABASE magnes;
